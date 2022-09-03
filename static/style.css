@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Mono&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  background-color: #171b26;
+}
+
+.header-logo {
+  text-align: center;
+  color: #ffff;
+  margin-top: 40px;
+  margin-bottom: 27px;
+}
+
+.header-logo .logo {
+  font-size: 1.9rem;
+}
+
+.header-logo .logo-desc {
+  font-size: 1.1rem;
+}
+
+.card {
+  padding: 0;
+}
+
+.search-container {
+  margin-bottom: 18px;
+}
+
+.table {
+  color: #ffff;
+  --bs-table-bg: #293143;
+  --bs-table-hover-color: #4bc1be;
+}
+
+tr {
+  padding: 2rem auto;
+}
+
+tr th {
+  color: #4bc1be;
+}
+
+.highlight {
+  color: #4bc1be;
+}
+
+.crypto-logo {
+  width: 32px;
+}
+
+.bold {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* Responsive Updated Code */
+@media (max-width: 530px) {
+  .market,
+  .rank {
+    display: none;
+  }
+  .header-logo .logo {
+    font-size: 22px;
+  }
+
+  .header-logo .logo-desc {
+    font-size: 12px;
+  }
+  .crypto-logo {
+    width: 22px;
+  }
+
+  .table {
+    font-size: 11px;
+  }
+  .header-logo {
+    margin-top: 30px;
+  }
+}
