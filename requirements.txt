@@ -1,0 +1,5 @@
+pandas==1.4.3
+prophet==1.1.1
+requests==2.25.1
+streamlit==1.12.2
+yfinance==0.1.74
