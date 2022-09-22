@@ -1,62 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/sheet.css">
-    <title>Login page</title>
-</head>
-<body>
-    
-<div class="container1" onclick="onclick">
-    <div class="top"></div>
-    <div class="bottom"></div>
-    <div class="center">
-        <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login" method="post">
-                        {% csrf_token %}
-                        <div class="login__field">
-                            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
-                            </i>
-                            <input {{form.username}} type="text" class="login__input" placeholder="User name / Email">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
-                            <input {{form.password}} type="password" class="login__input" placeholder="Password">
-                        </div>
-                        
-                        
-                        {{form.as_p}}
-                        <button class="button login__submit">
-                            <span class="button__text">Log In Now</span>
-                            <i class="button__icon fas "><img src="static/box-arrow-in-right.svg" alt=""></i>
-                        </button>				
-                        <br>
-                        <h5 class="h6">Dont have an account??</h5><br>
-                        <a href = "{% url 'signup' %}">SignUp Here</a> 
-                    </form>
-                    <div class="social-login">
-                        <h3>log in via</h3>
-                        <div class="social-icons">
-                            <a href="#" class="social-login__icon"><img src="static/instagram.svg" alt="image not found"></a>
-                            <a href="#" class="social-login__icon"><img src="static/facebook.svg" alt=""></a>
-                            <a href="#" class="social-login__icon"><img src="static/twitter.svg" alt=""></a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>		
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
-                </div>		
-            </div>
+{% extends 'layout/layout.html' %}
+    {%block content%}
+    <form class="login" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="login__field">
+            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
+            </i>
+            <input type="text" name="username" class="login__input" placeholder="User name">
         </div>
-    </div>
-  </div>
-</body>
-</html>
+        <div class="login__field">
+            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
+            <input type="text" name="password" class="login__input" placeholder="password">
+        </div>
+        <button class="button login__submit" type="submit">
+            <span class="button__text">Log In Now</span>
+            <i class="button__icon fas "><img src="static/box-arrow-in-right.svg" alt=""></i>
+        </button>				
+        <br>
+        <h5 class="h6">Dont have an account??</h5><br>
+        <a href = "{% url 'register' %}">SignUp Here</a> 
+    </form>
+    {%endblock%}
+    

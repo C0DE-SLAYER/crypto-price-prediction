@@ -1,67 +1,44 @@
-from http.client import HTTPResponse
-from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from cryptoUI.forms import RegistrationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def index(request):
-    return render(request, "index/index.html")
+    return render(request,'index/index.html')
 
-def SignUp(request):
-    return render(request, "login/register.html")
-
-def SignIn(request):
-    return render(request, "login/login.html")
-
-def signup(request):
-
-    if request.user.is_authenticated:
-        return redirect('index')
-    
+def registerPage(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-
-        if (form.password==form.password1):
-
-            if form.is_valid():
-                form.save()
-                username = form.cleaned_data['username']
-                password = form.cleaned_data['password']
-                password1 = form.cleaned_data['password1']
-                user = authenticate(username = username,password = password)
-                login(request, user)
-                return render(request,'index/index.html')
-            
-            else:
-                return render(request,'login/login.html',{'form':form})
-        else:
-            HTTPResponse("password dosent matched.")
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('index')
     else:
-        form = UserCreationForm()
-        return render(request,'login/login.html',{'form':form})
+        form=RegistrationForm()
+    context={'form':form}
+    return render(request, 'login/register.html',context)
 
-
-def signin(request):
-    if request.user.is_authenticated:
-        return redirect('index')
+def loginPage(request):
     
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username =username, password = password)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        if user is not None:
-            login(request,user)
+        myuser=authenticate(request, username=username,password=password)
+        
+        if myuser is not None:
+            login(request, myuser)
             return redirect('index')
         else:
-            form = AuthenticationForm()
-            return render(request,'login/login.html',{'form':form})
-    
-    else:
-        form = AuthenticationForm()
-        return render(request, 'login/login.html', {'form':form})
+            messages.error(request,"sucessfully register")
+            return redirect('login')
 
+    return render(request, 'login/login.html')
 
-def signout(request):
-    # logout(request)
-    return render(request, "login/login.html")
+@login_required
+def logoutPage(request):
+    logout(request)
+    return redirect('login')

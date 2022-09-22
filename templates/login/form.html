@@ -1,0 +1,11 @@
+{% extends 'layout/layout.html' %}
+
+{%block content%}
+<form method="POST">
+{%csrf_token%}
+{{form}}
+{{form.email}}
+{{form.password1}}
+{{form.password2}}
+</form>
+{% endblock %}

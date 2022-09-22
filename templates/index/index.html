@@ -33,15 +33,12 @@
         <tbody id="table_body"></tbody>
       </table>
     </div>
-    {% csrf_token %}
-    {{form.as_p}}
-    <a href="{% url 'logout' %}">
-    <button class="button login__submit" >
-      
+    <a href="{% url 'logout' %}" class="container">
+    <button class="login__submit" >
         <span class="button__text">Log out</span>
         <i class="button__icon fas "><img src="static/box-arrow-in-right.svg" alt=""></i>
-    </button>				</a>
-
+    </button>				
+  </a>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

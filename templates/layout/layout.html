@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/sheet.css">
+    <title></title>
+</head>
+<body>
+<div class="container1" onclick="onclick">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                     {% block  content %} 
+                     {% endblock %}
+                    <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-login__icon"><img src="static/instagram.svg" alt="image not found"></a>
+                            <a href="#" class="social-login__icon"><img src="static/facebook.svg" alt=""></a>
+                            <a href="#" class="social-login__icon"><img src="static/twitter.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

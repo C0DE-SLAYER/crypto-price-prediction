@@ -1,78 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/sheet.css">
-    <title>regitration page</title>
-</head>
-<body>
-    
-<div class="container1" onclick="onclick">
-    <div class="top"></div>
-    <div class="bottom"></div>
-    <div class="center">
-        <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login_r" method="post">
-                        {% csrf_token %}
-                        <div class="login__field" id="name">
-                            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
-                            </i>
-                            {{form.name}}
-                            <input  type="text" class="login__input" placeholder="Name">
-                        </div>
-                        <div class="login__field" id="username">
-                            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
-                            </i>
-                            {{form.username}}
-                            <input type="text" class="login__input" placeholder="Username ">
-                        </div>
-                        <div class="login__field" id="email">
-                            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
-                            </i>
-                            {{form.email}}
-                            <input type="text" class="login__input" placeholder="Email id">
-                        </div>
-                        <div class="login__field" id="password">
-                            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
-                            {{form.password}
-                            <input type="password" class="login__input" placeholder="Password">
-                        </div>
-                        <div class="login__field" id="password1">
-                            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
-                            {{form.password1}}
-                            <input type="password" class="login__input" placeholder="Confirm Password">
-                        </div>
-                        
-                        <button class="button login__register" >
-                            <span class="button__text">Register</span>
-                            <i class="button__icon fas "><img src="static/box-arrow-in-right.svg" alt=""></i>
-                        </button>				
-                        <h5 class="h6">Already have an account??</h5><br>
-                        <a href = "{% url 'signin' %}">login Here</a> 
-                    </form>
-                    <div class="social-login">
-                        <h3>log in via</h3>
-                        <div class="social-icons">
-                            <a href="#" class="social-login__icon"><img src="static/instagram.svg" alt="image not found"></a>
-                            <a href="#" class="social-login__icon"><img src="static/facebook.svg" alt=""></a>
-                            <a href="#" class="social-login__icon"><img src="static/twitter.svg" alt=""></a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>		
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
-                </div>		
-            </div>
+{% extends 'layout/layout.html' %}
+    {%block content%}
+    <form class="login_r" action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <div class="login__field" >
+            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
+            </i>
+            <input type="text" name="first_name" class="login__input" placeholder="first name">
         </div>
-    </div>
-  </div>
-</body>
-</html>
+        <div class="login__field" >
+            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
+            </i>
+            <input type="text" name="last_name" class="login__input" placeholder="last name">
+        </div>
+        <div class="login__field" >
+            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
+            </i>
+            <input type="text" name="username" class="login__input" placeholder="User name">
+        </div>
+        <div class="login__field">
+            <i class="login__icon fas "><img src="static/file-person.svg" alt="">
+            </i>
+            <input type="text" name="email" class="login__input" placeholder="email">
+        </div>
+        <div class="login__field">
+            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
+            <input type="text" name="password1" class="login__input" placeholder="password1">
+        </div>
+        <div class="login__field" >
+            <i class="login__icon fas "><img src="static/shield-lock-fill.svg" alt=""></i>
+            <input type="text" name="password2" class="login__input" placeholder="password2">
+        </div>
+        
+        <button class="button login__register" type="submit">
+            <span class="button__text">Register</span>
+            <i class="button__icon fas "><img src="static/box-arrow-in-right.svg" alt=""></i>
+        </button>				
+        <h5 class="h6">Already have an account??</h5><br>
+        <a href = "{% url 'login' %}">login Here</a> 
+    </form>
+    {% endblock %}
+    
