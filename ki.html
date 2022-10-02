@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="styt.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="impl.js">
+    </script>
+</head>
+<body>
+   <div class="container">
+    <h1 class="text-center">Cryptocurrency Prediction</h1>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <input id="search-input" type="text" onkeyup="searchfun()" placeholder="Search" class="form-control">
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped" id="mtab">
+        <thead>
+          <tr>
+            <th scope="col">rank</th>
+            <th scope="col">name</th>          
+            <th scope="col">priceUsd</th>
+            <th scope="col">symbol</th>
+            <th scope="col">changePercent24Hr</th>
+            <th scope="col">explorer</th>
+           
+            
+          </tr>
+        </thead>
+        <tbody id="data-output">
+         
+        </tbody>
+      </table>
+   </div>
+
+   <script src="bit.js"></script>
+</body>
+</html>
