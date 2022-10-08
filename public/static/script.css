@@ -79,23 +79,26 @@ img{
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     -moz-box-shadow: 0px 9px 15px -11px rgb(45, 116, 82);
     box-shadow: 0px 9px 15px -11px rgb(32, 121, 116);
-}
-
-.column {
+  }
+  
+  .nav {
+    top: 10%;
+    position: relative;
+  }
+  .left {
   left: 200px;
   top: 100px;
   position: relative;
 }
 
-.row {
+.rightup {
   top: 50%;
   left: 50px;
   position: relative;
 }
-
-.nav {
-  top: 50px;
-  
+.rightdow {
+  top: 50%;
+  left: 50px;
   position: relative;
 }
 
