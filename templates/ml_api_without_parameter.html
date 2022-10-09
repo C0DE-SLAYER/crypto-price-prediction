@@ -7,7 +7,7 @@
     <title>my first flask app</title>
 </head>
 <body>
-    <form action="{{ url_for("predict_without_parameters")}}" method="post">
+    <form action="{{ url_for("predict_without_parameter")}}" method="post">
         <select name="coins">
             {% for name in coin %}
             <option value={{name}}>{{name}}</option>

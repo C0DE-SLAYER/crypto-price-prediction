@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request
+from flask import Flask, render_template, request
 import requests
 import pandas as pd
 import datetime as dt
@@ -8,8 +8,8 @@ from prophet import Prophet
 app = Flask(__name__)
 
 def get_coin_name():
-    url = 'https://api.nomics.com/v1/currencies/ticker?key=e7e8d3665fd7a6a32be426648c149ce50325fdcd'
-    data = requests.get(url).json()
+    url = 'https://api.coincap.io/v2/assets'
+    data = requests.get(url).json()['data']
     df = pd.DataFrame(data)
     df = df['symbol']
     return df
@@ -26,8 +26,8 @@ def ml_model(coin_name,days):
     prediction = prediction[['ds','yhat']]
     return prediction['yhat'].iloc[-1]
 
-@app.route('/', methods = ['GET','POST'])
-def index():
+@app.route('/predict', methods = ['GET','POST'])
+def predict_without_parameter():
     if request.method == 'POST':
         coin_name = request.form.get('coins')
         days = int(request.form.get('date_pre'))
@@ -35,7 +35,9 @@ def index():
         return f'The predicted value is {prediction}'
     else:
         coin = get_coin_name()
-        return render_template('index.html',coin=coin)
+        return render_template('ml_api_without_parameter.html',coin=coin)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

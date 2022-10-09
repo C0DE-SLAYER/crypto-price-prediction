@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{%block title%}signup{%endblock%}
+
+{%block content%}
+    <form method="POST"> 
+
+        <label>Full Name : </label>
+        <input type="text" placeholder="Enter your name" name="fullname">
+        <br><br>
+
+
+        <label>email id : </label>
+        <input type="text" placeholder="Enter email id" name="email">
+        <br><br>
+
+        <label>Password : </label>
+        <input type="password" placeholder="Enter Password" name="password">
+        <br><br>
+
+        <button type="submit">signup</button>
+
+    </form>
+{%endblock%}
