@@ -1,0 +1,42 @@
+.mainco{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.disp{
+    width:50%;
+    height: 50vh;
+    padding: 20px;
+    background:  bottom linear-gradient(rgba(58, 233, 246, 0.7),rgba(129, 245, 143, 0.7));
+    box-shadow: 0 0 20px 0 #999;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.formm{
+    
+}
+.sel{
+    width:200px;
+    font-size: 18px;
+    border: 1px solid lightskyblue;
+    margin-top: 15px;
+}
+.pre{
+    font-size: 26px;
+    margin-top: 15px;
+}
+.ipo{
+    width:200px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+.mh{
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}

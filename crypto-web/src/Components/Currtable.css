@@ -1,0 +1,21 @@
+.baap{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.mainc{
+
+}
+th{
+    text-align: center;
+    background:  bottom linear-gradient(rgba(58, 233, 246, 0.7),rgba(129, 245, 143, 0.7));
+}
+table {
+    width: 100%;
+    
+    }
+    th, td {
+    text-align: left;
+    padding: 8px;
+    }
+tr:nth-child(even) {background-color: #f2f2f2;}
