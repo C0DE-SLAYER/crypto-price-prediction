@@ -1,0 +1,5 @@
+Flask
+prophet
+yfinance
+gunicorn
+flask-cors
